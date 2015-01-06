@@ -41,4 +41,5 @@ ESSID: Jazztel_XX - Information from: http://lampiweb.com/foro/index.php/topic,1
 References:
 
 	gdict: https://github.com/wireless75/dict_tools
+	pyrit: https://code.google.com/p/pyrit/
 
