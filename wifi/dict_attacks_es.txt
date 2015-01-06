@@ -38,3 +38,7 @@ ESSID: Jazztel_XX - Information from: http://lampiweb.com/foro/index.php/topic,1
 	gdict -nc 8 4FMJA6KRD7QU9HVPECBTGNXW8Y3 | pyrit -r captured_data.cap -i - -b xx:xx:xx:xx:xx:xx attack_passthrough
 
 
+References:
+
+	gdict: https://github.com/wireless75/dict_tools
+
